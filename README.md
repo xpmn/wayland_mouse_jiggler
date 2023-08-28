@@ -1,7 +1,7 @@
 # Wayland mouse jiggler
 Simplest keep-presence alternative for Wayland. Just a tiny bash script
 
-![Wayland mouse jiggler](output.gif)
+[How it looks - gif screencast](output.gif)
 
 ## How to run
 
