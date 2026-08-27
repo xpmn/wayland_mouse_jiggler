@@ -7,6 +7,10 @@ Simplest keep-presence alternative for Wayland. Just a tiny bash script
 
 ```./mouse.sh```
 
+or if you get `error: could not open device (Permission denied)`:
+
+```sudo ./mouse.sh```
+
 ## Running without root
 
 If you get `error: could not open device (Permission denied)`, it's because
@@ -26,4 +30,4 @@ and run `./mouse.sh` normally.
 ## Requirements
 
 You need [evemu](https://www.freedesktop.org/wiki/Evemu/) to run the script. Install it with your package manager: 
-`sudo apt install evemu-tools` or `sudo dnf install evemu`
+`sudo apt install evemu-tools` or `sudo dnf install evemu` or `sudo pacman -Syu evemu`
