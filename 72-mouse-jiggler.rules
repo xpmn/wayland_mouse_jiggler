@@ -1,0 +1,16 @@
+# Allow the active logged-in user to write mouse events without root.
+#
+# Grants an ACL on mouse event devices to the user of the active local
+# session (via systemd-logind's uaccess), so mouse.sh can run without sudo.
+# Only the currently logged-in seat user gets access, not every account.
+#
+# The 72- prefix matters: it runs after 70-uaccess.rules but before
+# 73-seat-late.rules, which invokes the uaccess builtin that writes the ACL.
+# A higher number (e.g. 99-) adds the tag too late and the ACL is never set.
+#
+# Install:
+#   sudo cp 72-mouse-jiggler.rules /etc/udev/rules.d/
+#   sudo udevadm control --reload-rules
+#   sudo udevadm trigger --subsystem-match=input
+#   # then unplug/replug the mouse, or re-login, so the ACL is applied
+SUBSYSTEM=="input", ENV{ID_INPUT_MOUSE}=="1", TAG+="uaccess"
